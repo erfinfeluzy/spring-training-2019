@@ -3,9 +3,11 @@ package com.erfinfeluzy.training.spring.controller;
 import java.util.Date;
 import java.util.List;
 
+import org.hibernate.validator.constraints.URL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -47,6 +49,22 @@ public class HomeController {
 	public String customerList(Model model) {
 		
 		List<Customer> customers = customerRepository.findAll();
+		
+		model.addAttribute("customers", customers);
+		
+		return "customers";
+	}
+	
+	@RequestMapping(value = "/customer/firstname/{firstname}", method = RequestMethod.GET)
+	public String findByFirstname (
+			Model model, 
+			@PathVariable String firstname) {
+		
+		System.out.println("firstname: " + firstname);
+		
+		firstname = firstname + "%";
+		
+		List<Customer> customers = customerRepository.findAllCustomerNativeSQL(firstname);
 		
 		model.addAttribute("customers", customers);
 		
