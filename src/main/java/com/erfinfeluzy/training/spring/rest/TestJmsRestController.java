@@ -15,9 +15,15 @@ public class TestJmsRestController {
 	@Autowired
 	private Sender sender;
 	
-	@GetMapping("/testjms")
-	public ResponseEntity<?> testJmsService() {
-		sender.sendMessage();
-		return ResponseEntity.ok().body("message has been send!");
+	@GetMapping("/textjms")
+	public ResponseEntity<?> testTextJmsService() {
+		sender.sendTextMessage();
+		return ResponseEntity.ok().body("Text message has been send!");
+	}
+	
+	@GetMapping("/mailjms")
+	public ResponseEntity<?> testEmailJmsService() {
+		sender.sendEmailMessage();
+		return ResponseEntity.ok().body("Email message has been send!");
 	}
 }
