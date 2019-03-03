@@ -11,13 +11,16 @@ import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.erfinfeluzy.training.spring.soap.CustomerSoapService;
 import com.erfinfeluzy.training.spring.soap.CustomerSoapServiceImpl;
 
+@SuppressWarnings("deprecation")
 @Configuration
 public class SOAPConfig {
 
 	@Bean
-	public ServletRegistrationBean dispatcherServlet() {
+	public ServletRegistrationBean cxfDispatcherServlet() {
+		
 		return new ServletRegistrationBean(new CXFServlet(), "/soap/*");
 	}
 
@@ -29,10 +32,16 @@ public class SOAPConfig {
 
 	@Bean
 	public Endpoint endpoint() {
-		EndpointImpl endpoint = new EndpointImpl(springBus(), new CustomerSoapServiceImpl());
+		EndpointImpl endpoint = new EndpointImpl(springBus(), customerSoapService());
 		endpoint.getFeatures().add(new LoggingFeature());
 		endpoint.publish("/CustomerService");
 		return endpoint;
+	}
+	
+	@Bean
+	public CustomerSoapService customerSoapService() {
+		
+		return new CustomerSoapServiceImpl();
 	}
 
 }

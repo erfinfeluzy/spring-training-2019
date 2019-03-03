@@ -12,10 +12,12 @@ import com.erfinfeluzy.training.spring.service.CustomerRepository;
 public class CustomerSoapServiceImpl implements CustomerSoapService {
 	
 	@Autowired
-	CustomerRepository customerRepository;
+	private CustomerRepository customerRepository;
 
 	@Override
 	public List<Customer> getAllCustomer() {
+		
+		System.out.println("customerRepository:" + customerRepository);
 		
 		List<Customer> result = customerRepository.findAll();
 		
