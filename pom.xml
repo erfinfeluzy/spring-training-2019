@@ -5,48 +5,41 @@
 	<groupId>com.erfinfeluzy.training</groupId>
 	<artifactId>spring-training-2019</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
+	<name>spring-training-2019</name>
+	<description>Spring-training-2019</description>
+	
 
+	<properties>
+		<!-- Encoding -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<!-- Dependencies -->
+		<java.version>1.8</java.version>
+		<org.apache.logging.log4j.version>2.8</org.apache.logging.log4j.version>
+	</properties>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>1.5.8.RELEASE</version> <!-- lookup parent from repository -->
+		<version>1.4.3.RELEASE</version>
 	</parent>
-	
-	<properties>
-		<org.apache.logging.log4j.version>2.9.1</org.apache.logging.log4j.version>
-		<java.version>1.8</java.version>
-	</properties>
+
+
 
 	<dependencies>
 		<!-- Spring Boot -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-			<exclusions>
-				<exclusion>
-					<groupId>org.springframework.boot</groupId>
-					<artifactId>spring-boot-starter-logging</artifactId>
-				</exclusion>
-			</exclusions>
 		</dependency>
-
+		
+		<!-- Need this to compile JSP -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
 
-		<!-- Logging -->
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-log4j2</artifactId>
-		</dependency>
 
 		<!-- Lombok -->
 		<dependency>
@@ -57,7 +50,7 @@
 		</dependency>
 
 	</dependencies>
-	
+
 	<build>
 		<plugins>
 			<!-- Java compiler -->
