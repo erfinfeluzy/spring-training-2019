@@ -1,4 +1,4 @@
-package com.erfinfeluzy.training.spring.controller;
+package com.erfinfeluzy.training.spring.rest;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.erfinfeluzy.training.spring.controller;
+package com.erfinfeluzy.training.spring.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
