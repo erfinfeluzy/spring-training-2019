@@ -1,22 +1,22 @@
 package com.erfinfeluzy.training;
 
-import java.util.List;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.builder.SpringApplicationBuilder;
+import org.springframework.boot.web.support.SpringBootServletInitializer;
+import org.springframework.context.annotation.PropertySource;
 
-import com.erfinfeluzy.training.model.Customer;
-import com.erfinfeluzy.training.spring.SpringDI;
 
-public class Application {
+@SpringBootApplication(scanBasePackages = { "com.erfinfeluzy" })
+@PropertySource({
+	"classpath:application.properties"
+})
+public class Application{
 
 	
 	public static void main(String[] args) {
 		
-		
-		System.out.println("hello");
-		
-		SpringDI withoutSpring = new SpringDI();
-		
-		List<Customer> customers =  withoutSpring.getAllCustomers();
+		SpringApplication.run(Application.class, args);
 		
 	}
-	
 }

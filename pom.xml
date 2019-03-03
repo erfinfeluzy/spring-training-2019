@@ -12,7 +12,11 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.8.RELEASE</version> <!-- lookup parent from repository -->
 	</parent>
-
+	
+	<properties>
+		<org.apache.logging.log4j.version>2.9.1</org.apache.logging.log4j.version>
+		<java.version>1.8</java.version>
+	</properties>
 
 	<dependencies>
 		<!-- Spring Boot -->
@@ -37,7 +41,13 @@
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-		
+
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-log4j2</artifactId>
+		</dependency>
+
 		<!-- Lombok -->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
@@ -47,5 +57,26 @@
 		</dependency>
 
 	</dependencies>
+	
+	<build>
+		<plugins>
+			<!-- Java compiler -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${java.version}</source>
+					<target>${java.version}</target>
+				</configuration>
+			</plugin>
+			<!-- Include if you want to make an executable jar[FAT JAR which includes 
+				all dependencies along with spring-boot loader] that you can run on commandline 
+				using java -jar NAME -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
