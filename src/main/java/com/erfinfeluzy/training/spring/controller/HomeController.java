@@ -15,10 +15,6 @@ import com.erfinfeluzy.training.spring.service.CustomerRepository;
 
 @Controller
 public class HomeController {
-	
-	
-	@Autowired
-	CustomerRepository customerRepository;
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home() {
@@ -27,6 +23,9 @@ public class HomeController {
 		
 		return "home";
 	}
+	
+	@Autowired
+	CustomerRepository customerRepository;
 	
 	@RequestMapping(value = "/customer/add", method = RequestMethod.GET)
 	public String customerAdd() {

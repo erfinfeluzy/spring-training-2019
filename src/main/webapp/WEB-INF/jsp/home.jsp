@@ -1,16 +1,16 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <html>
 
-<head>
-	<title>Training</title>
+	<head>
+		<title>Training</title>
+	</head>
 
-</head>
-
-<body>
-
-	<h2>Hello F * Trainee</h2>
-	<p>this is home</p>
-
-</body>
-
+	<body>
+	
+		<h2>Halo Trainee</h2>
+		
+		<p>greetings: ${greetings}</p>
+	
+	</body>
 
 </html>
