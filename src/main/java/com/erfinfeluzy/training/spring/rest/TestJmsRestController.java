@@ -15,6 +15,8 @@ public class TestJmsRestController {
 	@Autowired
 	private Sender sender;
 	
+	/** Queue **/
+	
 	@GetMapping("/textjms")
 	public ResponseEntity<?> testTextJmsService() {
 		sender.sendTextMessage();
@@ -26,4 +28,13 @@ public class TestJmsRestController {
 		sender.sendEmailMessage();
 		return ResponseEntity.ok().body("Email message has been send!");
 	}
+	
+	/** Topic **/
+	
+	@GetMapping("/alertjms")
+	public ResponseEntity<?> testAlertJmsService() {
+		sender.sendAlertMessage();
+		return ResponseEntity.ok().body("Alert message has been send!");
+	}
+	
 }

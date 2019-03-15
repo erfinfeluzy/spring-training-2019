@@ -6,10 +6,10 @@ import javax.jws.WebService;
 
 import com.erfinfeluzy.training.spring.model.Customer;
 
-@WebService(serviceName = "CustomerSoapService")
+
+@WebService
 public interface CustomerSoapService {
 
-	
 	List<Customer> getAllCustomer();
 	
 	List<Customer> getCustomerByFirstname(String firstname);
