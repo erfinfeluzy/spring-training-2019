@@ -6,6 +6,7 @@ import javax.jws.WebService;
 
 import com.erfinfeluzy.training.spring.model.Customer;
 
+
 @WebService
 public interface CustomerSoapService {
 
