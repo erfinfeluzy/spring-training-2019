@@ -29,12 +29,4 @@ public class TestJmsRestController {
 		return ResponseEntity.ok().body("Email message has been send!");
 	}
 	
-	/** Topic **/
-	
-	@GetMapping("/alertjms")
-	public ResponseEntity<?> testAlertJmsService() {
-		sender.sendAlertMessage();
-		return ResponseEntity.ok().body("Alert message has been send!");
-	}
-	
 }

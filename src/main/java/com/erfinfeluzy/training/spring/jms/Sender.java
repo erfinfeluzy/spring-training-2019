@@ -14,8 +14,6 @@ public class Sender {
 	private static final String MAILBOX_QUEUE_DESTINATION = "mailbox.queue";
 	private static final String TEXT_QUEUE_DESTINATION = "text.queue";
 	
-	private static final String ALERT_TOPIC_DESTINATION = "alert.topic";
-	
 	
 	@Autowired
 	@Qualifier("jacksonMessageConverter")
@@ -36,14 +34,6 @@ public class Sender {
 		jmsTemplate.setMessageConverter(jacksonMessageConverter);
 		jmsTemplate.convertAndSend(MAILBOX_QUEUE_DESTINATION, 
 				new Email("admin@localhost", "Connection test!"));
-	}
-	
-	
-	/** Topic **/
-	
-	public void sendAlertMessage() {
-		jmsTemplate.convertAndSend(ALERT_TOPIC_DESTINATION, 
-				"System alert!");
 	}
 	
 }
